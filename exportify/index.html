@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Exportify</title>
+    <meta charset="utf-8" />
+    <meta
+      name="description"
+      content="Export and save your Spotify playlists to csv. Analyze your music tastes in the Jupyter notebook. Data fields include genres, artists, popularity, year and more."
+    />
+
+    <link rel="icon" type="image/png" href="favicon.png" />
+    <link rel="canonical" href="https://exportify.net" />
+
+    <!-- Bootstrap -->
+    <link
+      rel="stylesheet"
+      href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css"
+    />
+
+    <!-- React.js -->
+    <script src="//unpkg.com/react@16/umd/react.production.min.js"></script>
+    <script src="//unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
+
+    <!-- IO utils -->
+    <script src="FileSaver.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jszip/2.5.0/jszip.min.js"></script>
+
+    <link rel="stylesheet" href="style.css" />
+    <script src="exportify.js"></script>
+  </head>
+
+  <body>
+    <div class="container">
+      <div id="header">
+        <div id="logoutContainer" class="text-right"></div>
+
+        <h1>
+          <a href="https://github.com/pavelkomarov/exportify"
+            ><i class="fa fa-spotify" style="color: #84bd00"></i> Exportify</a
+          >
+        </h1>
+        <p id="subtitle" class="lead">Export your Spotify playlist data.</p>
+        <p>
+          Analyze the data
+          <a href="http://pavelkomarov.com/exportify/taste_analysis"
+            >like this</a
+          >
+          by
+          <a
+            href="https://mybinder.org/v2/gh/pavelkomarov/exportify/master"
+            target="_blank"
+          >
+            launching the notebook</a
+          >, uploading your <tt>.csv</tt>, and running the <tt>.ipynb</tt>.
+        </p>
+        <p>
+          What do you use your data to do? Have improvement ideas? Want to know
+          how to use URIs? Join the
+          <a href="https://github.com/pavelkomarov/exportify/discussions"
+            >discussion</a
+          >
+          on <a href="https://github.com/pavelkomarov/exportify">GitHub</a>!
+        </p>
+        <p id="error"></p>
+
+        <button
+          id="loginButton"
+          type="submit"
+          class="btn btn-lg"
+          onclick="utils.authorize()"
+        >
+          <i class="fa fa-check-circle-o"></i> Get Started
+        </button>
+      </div>
+
+      <div id="playlistsContainer"></div>
+    </div>
+    <!-- /.container -->
+  </body>
+</html>
